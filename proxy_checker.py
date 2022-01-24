@@ -1,9 +1,15 @@
 import requests
 import random
-from .get_public_ip import get_public_ip
 from random import shuffle
-from .exception import CannotCheckProxy
-from stg import STG
+
+try:
+    from .get_public_ip import get_public_ip
+    from .exception import CannotCheckProxy
+    from .stg import STG
+except ImportError:
+    from get_public_ip import get_public_ip
+    from exception import CannotCheckProxy
+    from stg import STG
 
 user_agent = [
     'Mozilla/5.0 (X11; Linux i686; rv:64.0) Gecko/20100101 Firefox/64.0',

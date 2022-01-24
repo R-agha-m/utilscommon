@@ -1,6 +1,9 @@
 from os import _exit  # noqa
 from sys import exit as sys_exit
-from .manage_exceptions_decorator import manage_exceptions_decorator
+try:
+    from .manage_exceptions_decorator import manage_exceptions_decorator
+except ImportError:
+    from manage_exceptions_decorator import manage_exceptions_decorator
 
 
 @manage_exceptions_decorator()

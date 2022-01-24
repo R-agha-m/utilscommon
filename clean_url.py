@@ -1,5 +1,8 @@
 from .find_nth_char_index import find_nth_char_index
-from stg import STG
+try:
+    from .stg import STG
+except ImportError:
+    from stg import STG
 
 
 def clean_url(url, slash_number=2):

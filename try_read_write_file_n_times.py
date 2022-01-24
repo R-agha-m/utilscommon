@@ -1,9 +1,13 @@
-from .exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
+
 from time import sleep
 from traceback import format_exc
-import stg
 from os.path import exists
-from .stg import STG
+try:
+    from .stg import STG, report
+    from .exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
+except ImportError:
+    from .stg import STG, report
+    from .exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
 
 
 def try_read_write_file_n_times(path,
@@ -31,5 +35,5 @@ def try_read_write_file_n_times(path,
             if raise_if_fails and (i == n):
                 raise Fail2OpenFile
 
-            stg.report.warning(format_exc())
+            report.warning(format_exc())
             sleep(STG.POLL_FREQUENCY)

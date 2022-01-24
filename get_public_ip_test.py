@@ -1,12 +1,19 @@
-from .parse_url import parse_url
 from requests import request
 from re import compile
-from .exception import CannotGetIPAddress, IPFound
 from os import environ
 from socket import gethostbyname, gethostname
 from requests import request
 from traceback import print_exc
-from .valid_http_headers import headers
+
+try:
+    from .parse_url import parse_url
+    from .exception import CannotGetIPAddress, IPFound
+    from .valid_http_headers import headers
+except ImportError:
+    from parse_url import parse_url
+    from exception import CannotGetIPAddress, IPFound
+    from valid_http_headers import headers
+
 
 default_sites = ("http://httpbin.org/ip",
                  "http://icanhazip.com",

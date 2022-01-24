@@ -1,5 +1,5 @@
 from types import FunctionType
-from utils.loggingUtils.lof import logger_decorator
+from utils_logging.logger_decorator import logger_decorator
 
 
 def get_my_demand_method(cls):

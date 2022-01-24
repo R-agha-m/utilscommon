@@ -1,11 +1,17 @@
-from .run_command import run_command
 from re import compile
-from .exception import CannotGetIPAddress, IPFound
 from os import environ
 from socket import gethostbyname, gethostname
 from requests import request
 from traceback import print_exc
-from .parse_url import parse_url
+
+try:
+    from .run_command import run_command
+    from .exception import CannotGetIPAddress, IPFound
+    from .parse_url import parse_url
+except ImportError:
+    from run_command import run_command
+    from exception import CannotGetIPAddress, IPFound
+    from parse_url import parse_url
 
 __all__ = ("get_public_ip", "GetPublicIp",)
 

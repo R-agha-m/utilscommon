@@ -1,7 +1,10 @@
 from numpy.random import normal
 from functools import wraps
 from time import sleep
-from stg import report
+try:
+    from .stg import STG
+except ImportError:
+    from stg import STG
 
 
 def random_sleep(mean=1,
