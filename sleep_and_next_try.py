@@ -1,6 +1,6 @@
 from time import sleep
 from datetime import datetime, timedelta
-from stg import report
+from .stg import report
 
 
 def sleep_and_next_try(sleep_time):

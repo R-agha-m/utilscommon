@@ -1,7 +1,7 @@
 from numpy.random import normal
 from functools import wraps
 from time import sleep
-import stg
+from stg import report
 
 
 def random_sleep(mean=1,
@@ -11,7 +11,6 @@ def random_sleep(mean=1,
                  maximum=None,
                  do_sleep=True):
 
-    stg.report.debug('')
     if not std:
         std = cov * mean
 
@@ -23,7 +22,7 @@ def random_sleep(mean=1,
 
     sleep_time = float(normal(mean, std, 1))
     sleep_time = round(max(min(sleep_time, maximum), minimum), 1)
-    stg.report.debug(f'sleep time: {sleep_time}')
+    report.debug(f'sleep time: {sleep_time}')
 
     if do_sleep:
         sleep(sleep_time)

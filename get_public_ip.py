@@ -1,6 +1,6 @@
 from .run_command import run_command
 from re import compile
-from utils.exception import CannotGetIPAddress, IPFound
+from .exception import CannotGetIPAddress, IPFound
 from os import environ
 from socket import gethostbyname, gethostname
 from requests import request

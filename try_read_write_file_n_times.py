@@ -3,6 +3,7 @@ from time import sleep
 from traceback import format_exc
 import stg
 from os.path import exists
+from .stg import STG
 
 
 def try_read_write_file_n_times(path,
@@ -10,7 +11,7 @@ def try_read_write_file_n_times(path,
                                 data_2_write=None,
                                 n=None,
                                 raise_if_fails=True):
-    n = n or stg.MAX_TRY
+    n = n or STG.MAX_TRY
     
     if not exists(path):
         raise PathCannotBeFound
@@ -31,4 +32,4 @@ def try_read_write_file_n_times(path,
                 raise Fail2OpenFile
 
             stg.report.warning(format_exc())
-            sleep(stg.POLL_FREQUENCY)
+            sleep(STG.POLL_FREQUENCY)

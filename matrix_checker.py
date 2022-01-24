@@ -3,7 +3,7 @@ from os import getenv
 from platform import system
 
 
-def matrix_checker():
+def is_matrix():
     os_type = system().lower()
     if os_type.startswith('win'):
         return False

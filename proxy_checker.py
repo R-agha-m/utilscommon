@@ -1,11 +1,9 @@
 import requests
 import random
-from time import time
 from .get_public_ip import get_public_ip
-from .manage_exceptions_decorator import manage_exceptions_decorator
 from random import shuffle
 from .exception import CannotCheckProxy
-import stg
+from stg import STG
 
 user_agent = [
     'Mozilla/5.0 (X11; Linux i686; rv:64.0) Gecko/20100101 Firefox/64.0',
@@ -33,11 +31,11 @@ shuffle(sites_2_get_my_geo)
 class ProxyChecker:
     def __init__(self,
                  proxy,
-                 time_out=None,
+                 time_out=STG.TIME_OUT,
                  get_geo=True):
 
         self.proxy = proxy
-        self.time_out = time_out or stg.TIME_OUT
+        self.time_out = time_out
         self.get_geo = get_geo
 
         # 'https://user:password@proxyip:port'
