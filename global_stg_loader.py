@@ -11,11 +11,8 @@ def global_stg_loader(stg_class_name="LocalStg"):
         global_stg_module = module_from_spec(spec)
         spec.loader.exec_module(global_stg_module)
         GlobalStg = getattr(global_stg_module, stg_class_name)
-        print(f"Global setting module: {STG_MODULE_ADDRESS}")
     else:
         class GlobalStg:
             pass
-
-        print(f"Package local setting module")
 
     return GlobalStg
