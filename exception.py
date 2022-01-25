@@ -14,10 +14,6 @@ class CannotGetIPAddress(ProjectBaseException):
     pass
 
 
-class ExceptionInChildProcess(ProjectBaseException):
-    pass
-
-
 class NetworkError(ProjectBaseException):
     pass
 
