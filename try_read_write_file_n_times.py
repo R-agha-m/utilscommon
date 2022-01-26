@@ -12,9 +12,8 @@ except ImportError:
 def try_read_write_file_n_times(path,
                                 mode='r',
                                 data_2_write=None,
-                                n=None,
+                                n=STG.MAX_TRY,
                                 raise_if_fails=True):
-    n = n or STG.MAX_TRY
     
     if not exists(path):
         raise PathCannotBeFound
