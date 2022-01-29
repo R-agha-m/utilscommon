@@ -15,7 +15,7 @@ def try_read_write_file_n_times(path,
                                 n=STG.MAX_TRY,
                                 raise_if_fails=True):
     
-    if not exists(path):
+    if (mode == 'r') and (not exists(path)):
         raise PathCannotBeFound
 
     for i in range(1, n + 1):
