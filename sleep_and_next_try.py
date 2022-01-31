@@ -8,7 +8,7 @@ except ImportError:
 
 def sleep_and_next_try(sleep_time):
     if sleep_time:
-        report.info(f'sleep time: {sleep_time}')
+        report.debug(f'sleep time: {sleep_time}')
         next_try = datetime.now() + timedelta(seconds=sleep_time)
-        report.info(f'next try: {next_try}')
+        report.debug(f'next try: {next_try}')
         sleep(sleep_time)
