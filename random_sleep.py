@@ -2,9 +2,9 @@ from numpy.random import normal
 from functools import wraps
 from time import sleep
 try:
-    from .stg import STG
+    from .stg import STG, report
 except ImportError:
-    from stg import STG
+    from stg import STG, report
 
 
 def random_sleep(mean=1,
