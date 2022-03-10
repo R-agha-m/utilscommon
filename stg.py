@@ -67,3 +67,4 @@ report = STG.report
 if __name__ == "__main__":
     print(STG.DEBUG_MODE)
     print(STG.report)
+
