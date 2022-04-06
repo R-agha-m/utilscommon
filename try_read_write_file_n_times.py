@@ -13,17 +13,22 @@ def try_read_write_file_n_times(path,
                                 mode='r',
                                 data_2_write=None,
                                 n=STG.MAX_TRY,
-                                raise_if_fails=True):
+                                raise_if_fails=True,
+                                encoding='utf-8'):
     
     if (mode == 'r') and (not exists(path)):
         raise PathCannotBeFound
 
     for i in range(1, n + 1):
         try:
-            with open(path, mode, encoding='utf-8') as handler:
-                if mode == 'r':
+            with open(path, mode, encoding=encoding) as handler:
+                if 'r' in mode:
                     return handler.read()
-                elif mode in {'w', 'a'}:
+
+                elif 'w' in mode:
+                    return handler.write(data_2_write)
+
+                elif 'a' in mode:
                     return handler.write(data_2_write)
                 else:
                     raise UnacceptableOpenMode
