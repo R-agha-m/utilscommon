@@ -55,10 +55,10 @@ class VenvPreparer:
     def _create_runner_file(self):
         if system().lower().startswith("win"):
             with open(f"{join(self.base, '__main__.cmd')}", 'w') as handler:
-                handler.write(f"{self.venv_python_address} .")
+                handler.write(f"\"{self.venv_python_address}\" .")
 
             print("runner file is created successfully.")
 
 
 if __name__ == "__main__":
-    VenvPreparer(name="venv").perform()
+    VenvPreparer(name="mvenv").perform()
