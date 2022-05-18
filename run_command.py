@@ -1,9 +1,11 @@
 from subprocess import run, STDOUT, PIPE
 
 
-def run_command(command, raise_error=True):
+def run_command(command,
+                raise_error=True,
+                shell=False):
     completed_process = run(command,
-                            shell=False,
+                            shell=shell,
                             # capture_output=True,
                             text=True,
                             stdout=PIPE,
