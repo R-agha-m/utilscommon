@@ -61,4 +61,4 @@ class VenvPreparer:
 
 
 if __name__ == "__main__":
-    VenvPreparer(name="mvenv").perform()
+    VenvPreparer(name="venv").perform()
