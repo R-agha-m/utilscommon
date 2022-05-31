@@ -1,11 +1,7 @@
 from os import environ
-from .global_stg_loader import global_stg_loader
-
-GlobalStg = global_stg_loader(current_stg_address=__file__,
-                              stg_class_name="LocalStg")
 
 
-class LocalStg:
+class Setting:
     _debug_mode = None
     _report = None
     _time_out = None
@@ -57,11 +53,7 @@ class LocalStg:
         return self._implicit_wait_time
 
 
-class StgClass(GlobalStg, LocalStg):
-    pass
-
-
-STG = StgClass()
+STG = Setting()
 report = STG.report
 
 if __name__ == "__main__":

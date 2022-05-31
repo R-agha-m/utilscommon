@@ -1,11 +1,11 @@
 from time import sleep
 from traceback import format_exc
 from os.path import exists
+from stg import STG, report
+
 try:
-    from .stg import STG, report
     from .exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
 except ImportError:
-    from stg import STG, report
     from exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
 
 

@@ -1,10 +1,7 @@
 from functools import wraps
 from traceback import format_exc
 from time import sleep
-try:
-    from .stg import STG, report
-except ImportError:
-    from stg import STG, report
+from stg import STG, report
 
 
 def repetition_decorator(repetition=None,

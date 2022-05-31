@@ -1,9 +1,6 @@
 from functools import wraps
 from traceback import format_exc
-try:
-    from .stg import report
-except ImportError:
-    from stg import report
+from stg import report
 # todo: get finally function
 
 
