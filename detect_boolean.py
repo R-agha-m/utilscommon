@@ -1,6 +1,11 @@
+
+FALSE_STRINGS = {"false", "fals", "0", "", "none"}
+TRUE_STRINGS = {"true", "tru", "1"}
+
+
 def detect_boolean(value):
     if type(value) is str:
-        if value.lower() in {"false", "fals", "0", "", "none", }:
+        if value.lower() in FALSE_STRINGS:
             return False
         else:
             return True

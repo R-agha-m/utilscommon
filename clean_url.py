@@ -1,6 +1,8 @@
 from .find_nth_char_index import find_nth_char_index
 from stg import STG
 
+# This function is better to be replaced by regex
+
 
 def clean_url(url, slash_number=2):
     if url.startswith(APARAT_MAIN_ADDRESS):
