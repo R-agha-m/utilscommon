@@ -5,7 +5,7 @@ try:
     from os import environ
     from time import sleep
 
-    STG_MODULE_ADDRESS = environ.setdefault("STG_MODULE_ADDRESS", "./stg.py")
+    STG_MODULE_ADDRESS = environ.setdefault("STG_MODULE_ADDRESS", "../stg.py")
 
     from stg import STG, report
     from workflow.workflow import Workflow
