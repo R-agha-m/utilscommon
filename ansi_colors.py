@@ -57,5 +57,5 @@ if __name__ == "__main__":
     print(Formats.ITALIC + "<<<< ITALIC >>>>" + Formats.END)
     print(Formats.UNDERLINE + "<<<< UNDERLINE >>>>" + Formats.END)
     print(Formats.BLINK + "<<<< BLINK >>>>" + Formats.END)
-    print(Formats.NEGATIVE + "<<<< NEGATIVE >>>>" + Formats.END)
+    print("<<<< NEGATIVE >>>>" + Formats.END)
     print(Formats.CROSSED + "<<<< CROSSED >>>>" + Formats.END)
