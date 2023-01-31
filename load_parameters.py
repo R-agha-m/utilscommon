@@ -12,7 +12,7 @@ def load_parameters(name,
     if (parameter is None) and can_use_config_file:
         parameter = config_file[parent_name_in_config_file].get(name)
 
-    if parameter is None:
+    if not parameter:
         parameter = default
 
     return parameter

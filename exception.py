@@ -32,3 +32,11 @@ class CannotCheckProxy(ProjectBaseException):
 
 class IPFound(ProjectBaseException):
     pass
+
+
+class FakeException4Test(Exception):
+    pass
+
+
+class IsOnly4Test(Exception):
+    pass

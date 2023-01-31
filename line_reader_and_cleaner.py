@@ -1,6 +1,6 @@
 
 def line_reader_and_cleaner(raw_data,
-                            replace_chars=(("\r\n", "\n"),),
+                            replace_chars: tuple[tuple] = (("\r\n", "\n"),),
                             split_chars=("\n",),
                             elimination_chars=("#",),
                             eliminate_empty_lines=True,
@@ -41,9 +41,12 @@ def line_reader_and_cleaner(raw_data,
 
 
 if __name__ == "__main__":
-    line_reader_and_cleaner(raw_data="reza\r\n#naghi\ntaghi\nvahi,ed",
+    result = line_reader_and_cleaner(raw_data="reza\r\n#naghi\ntaghi\nvahi,ed",
                             replace_chars=(("\r\n", "\n"),),
                             split_chars=("\n", ","),
                             elimination_chars=("#",),
                             make_lower=True,
                             make_unique=True)
+
+
+    print(result)
