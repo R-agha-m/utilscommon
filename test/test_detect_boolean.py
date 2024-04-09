@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 
 try:
-    from .detect_boolean import detect_boolean, FALSE_STRINGS
+    from utilscommon.utilscommon.detect_boolean import detect_boolean, FALSE_STRINGS
 except ImportError:
     from detect_boolean import detect_boolean, FALSE_STRINGS
 
