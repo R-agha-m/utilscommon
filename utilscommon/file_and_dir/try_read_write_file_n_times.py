@@ -3,7 +3,7 @@ from traceback import format_exc
 from os.path import exists
 
 try:
-    from .exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
+    from utilscommon.utilscommon.exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
 except ImportError:
     from exception import UnacceptableOpenMode, Fail2OpenFile, PathCannotBeFound
 

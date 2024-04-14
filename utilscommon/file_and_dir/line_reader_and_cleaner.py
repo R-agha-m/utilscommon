@@ -1,13 +1,13 @@
-
-def line_reader_and_cleaner(raw_data,
-                            replace_chars: tuple[tuple] = (("\r\n", "\n"),),
-                            split_chars=("\n",),
-                            elimination_chars=("#",),
-                            eliminate_empty_lines=True,
-                            strip_space=True,
-                            make_lower=True,
-                            make_unique=True):
-
+def line_reader_and_cleaner(
+        raw_data: str,
+        replace_chars: tuple[tuple[str, str]] = (("\r\n", "\n"),),
+        split_chars: tuple[str, ...] = ("\n",),
+        elimination_chars: tuple[str, ...] = ("#",),
+        eliminate_empty_lines: bool = True,
+        strip_space: bool = True,
+        make_lower: bool = True,
+        make_unique: bool = True,
+):
     if replace_chars:
         for char, replace_char in replace_chars:
             raw_data = raw_data.replace(char, replace_char)
@@ -42,11 +42,10 @@ def line_reader_and_cleaner(raw_data,
 
 if __name__ == "__main__":
     result = line_reader_and_cleaner(raw_data="reza\r\n#naghi\ntaghi\nvahi,ed",
-                            replace_chars=(("\r\n", "\n"),),
-                            split_chars=("\n", ","),
-                            elimination_chars=("#",),
-                            make_lower=True,
-                            make_unique=True)
-
+                                     replace_chars=(("\r\n", "\n"),),
+                                     split_chars=("\n",),
+                                     elimination_chars=("#",),
+                                     make_lower=True,
+                                     make_unique=True)
 
     print(result)

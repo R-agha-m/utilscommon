@@ -5,6 +5,13 @@ class ProjectBaseException(Exception):
                     key,
                     value)
 
+#                         code: int,
+#             success: bool = None,
+#             data: None | dict | list = None,
+#             error: str | dict | list | None = None,
+#             message: str | dict | list | None = None,
+#             log_this_exc: bool = False
+
 
 class PathCannotBeFound(ProjectBaseException):
     pass
