@@ -43,12 +43,12 @@ def test_load_config_in_orm_mode():
         convert_to_orm_mode=True,
     )
 
-    CONFIG = config_loader.perform()
+    SETTINGS = config_loader.perform()
     attributes = ("GENERAL", "DATABASE")
     for i in attributes:
-        assert getattr(CONFIG, i, None), f"CONFIG has not the attribute: {i}"
+        assert getattr(SETTINGS, i, None), f"SETTINGS has not the attribute: {i}"
 
-    print(CONFIG)
+    print(SETTINGS)
 
 
 def test_load_config_in_dict_mode():
@@ -73,10 +73,10 @@ def test_load_config_in_dict_mode():
         convert_to_orm_mode=False,
     )
 
-    CONFIG = config_loader.perform()
+    SETTINGS = config_loader.perform()
     keys = ("GENERAL", "DATABASE")
     for i in keys:
-        assert i in CONFIG, f"CONFIG has not the key: {i}"
+        assert i in SETTINGS, f"SETTINGS has not the key: {i}"
         assert config_loader.get_config(i)
 
 
@@ -103,7 +103,7 @@ def test_load_config_with_raised_on_duplicate_sections():
     )
 
     with pytest.raises(ValueError):
-        CONFIG = config_loader.perform()
+        SETTINGS = config_loader.perform()
 
 
 def test_load_config_with_raised_on_unused_sections():
@@ -129,7 +129,7 @@ def test_load_config_with_raised_on_unused_sections():
     )
 
     with pytest.raises(ValueError):
-        CONFIG = config_loader.perform()
+        SETTINGS = config_loader.perform()
 
 
 def test_load_config_with_raised_on_missed_sections():

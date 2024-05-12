@@ -25,7 +25,7 @@ def test_prepare_logger():
         convert_to_orm_mode=True,
     )
 
-    CONFIG = config_loader.perform()
+    SETTINGS = config_loader.perform()
 
     prepare_logger_obj = PrepareLogger(
         name=CONFIG.LOGGING.name,
