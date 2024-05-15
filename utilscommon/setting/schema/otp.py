@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 
 
-class Otp(BaseModel):
-    resend_lock_duration_in_second: int
-    validity_period_in_second: int
-    number_of_characters: int
-    allowed_characters: str
+class SchemaOtp(BaseModel):
+    RESEND_LOCK_DURATION_IN_SECOND: int
+    VALIDITY_PERIOD_IN_SECONDS: int
+    NUMBER_OF_CHARACTERS: int
+    ALLOWED_CHARACTER: str
