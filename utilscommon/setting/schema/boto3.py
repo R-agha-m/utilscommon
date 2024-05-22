@@ -6,6 +6,10 @@ from pydantic import BaseModel
 class SchemaBoto3(BaseModel):
     HOST: str
     PORT: int
+    ROOT_USER: str
+    ROOT_PASSWORD: str
+    API_PORT_NUMBER: int
+    CONSOLE_PORT_NUMBER: int
     SERVER_ACCESS_KEY: str
     SERVER_SECRET_KEY: str
     SERVER_ADDRESS_FOR_CLIENT: str
