@@ -1,9 +1,11 @@
 class ProjectBaseException(Exception):
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
-            setattr(self,
-                    key,
-                    value)
+            setattr(
+                self,
+                key,
+                value,
+            )
 
 #             code: int,
 #             success: bool = None,

@@ -5,8 +5,8 @@ from pydantic import (
 
 
 class SchemaPassword(BaseModel):
-    minimum_length: int
-    salt: conbytes(
+    MINIMUM_LENGTH: int
+    SALT: conbytes(
         min_length=16,
         max_length=16,
     )
