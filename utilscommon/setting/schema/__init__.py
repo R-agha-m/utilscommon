@@ -11,3 +11,4 @@ from .api import SchemaApi
 from .cache import SchemaCache
 from .password import SchemaPassword
 from .token import SchemaToken
+from .minio import SchemaMinIo

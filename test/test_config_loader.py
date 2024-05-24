@@ -156,4 +156,4 @@ def test_load_config_with_raised_on_missed_sections():
     )
 
     with pytest.raises(ValueError):
-        CONFIG = config_loader.perform()
+        SETTINGS = config_loader.perform()

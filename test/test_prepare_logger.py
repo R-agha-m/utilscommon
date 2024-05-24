@@ -28,23 +28,23 @@ def test_prepare_logger():
     SETTINGS = config_loader.perform()
 
     prepare_logger_obj = PrepareLogger(
-        name=CONFIG.LOGGING.name,
-        level=CONFIG.LOGGING.level,
-        handlers=CONFIG.LOGGING.handlers,
+        name=SETTINGS.LOGGING.name,
+        level=SETTINGS.LOGGING.level,
+        handlers=SETTINGS.LOGGING.handlers,
 
         format_='{"time":"%(asctime)s", "name": "%(name)s", "level": "%(levelname)s", '
                 '"function": "%(funcName)s", "message": "%(message)s"}',
 
         timed_rotating_file_handler_input={
-            "filename": BASE_DIR_STR + sep + "logs" + sep + CONFIG.LOGGING.filename,
-            "when": CONFIG.LOGGING.when,
-            "interval": CONFIG.LOGGING.interval,
-            "backupCount": CONFIG.LOGGING.backupCount,
-            "encoding": CONFIG.LOGGING.encoding,
-            "delay": CONFIG.LOGGING.delay,
-            "utc": CONFIG.LOGGING.utc,
-            "atTime": CONFIG.LOGGING.atTime,
-            "errors": CONFIG.LOGGING.errors,
+            "filename": BASE_DIR_STR + sep + "logs" + sep + SETTINGS.LOGGING.filename,
+            "when": SETTINGS.LOGGING.when,
+            "interval": SETTINGS.LOGGING.interval,
+            "backupCount": SETTINGS.LOGGING.backupCount,
+            "encoding": SETTINGS.LOGGING.encoding,
+            "delay": SETTINGS.LOGGING.delay,
+            "utc": SETTINGS.LOGGING.utc,
+            "atTime": SETTINGS.LOGGING.atTime,
+            "errors": SETTINGS.LOGGING.errors,
         },
         sys_log_handler=None,
         stream_handler=None,
