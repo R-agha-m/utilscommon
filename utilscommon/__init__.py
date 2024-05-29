@@ -4,7 +4,7 @@ try:
     from utilscommon.exception import *
     from utilscommon.file_and_dir import *
     from utilscommon.is_test_mode import is_test_mode
-    from utilscommon.generate_build_versioning import generate_build_versioning
+
 
 except ImportError:
     from utilscommon.utilscommon import logo
@@ -12,6 +12,5 @@ except ImportError:
     from utilscommon.utilscommon.exception import *
     from utilscommon.utilscommon.file_and_dir import *
     from utilscommon.utilscommon.is_test_mode import is_test_mode
-    from utilscommon.utilscommon.generate_build_versioning import generate_build_versioning
 
 
