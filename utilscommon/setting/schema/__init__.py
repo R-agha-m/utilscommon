@@ -13,3 +13,4 @@ from .password import SchemaPassword
 from .token import SchemaToken
 from .otp import SchemaOtp
 from .boto3 import SchemaBoto3
+from .kaveh_negar import SchemaKavehNegar
