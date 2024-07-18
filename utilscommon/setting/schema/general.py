@@ -1,4 +1,9 @@
-from pydantic import BaseModel
+from typing import Annotated
+
+from pydantic import (
+    BaseModel,
+    StringConstraints,
+)
 
 
 class SchemaGeneral(BaseModel):
@@ -7,3 +12,5 @@ class SchemaGeneral(BaseModel):
     PYTHONIC_APPLICATION_NAME: str
     APPLICATION_DESCRIPTION: str
     APPLICATION_VERSION: str
+    DOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/docs"
+    REDOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/redocs"
