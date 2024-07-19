@@ -4,6 +4,7 @@ try:
     from utilscommon.exception import *
     from utilscommon.file_and_dir import *
     from utilscommon.is_test_mode import is_test_mode
+    from utilscommon.make_flat import make_flat
     from utilscommon.sleep_unil import (
         sleep_until,
         async_sleep_until,
@@ -16,6 +17,7 @@ except ImportError:
     from utilscommon.utilscommon.exception import *
     from utilscommon.utilscommon.file_and_dir import *
     from utilscommon.utilscommon.is_test_mode import is_test_mode
+    from utilscommon.utilscommon.make_flat import make_flat
     from utilscommon.utilscommon.sleep_unil import (
         sleep_until,
         async_sleep_until,
