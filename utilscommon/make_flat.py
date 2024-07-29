@@ -4,14 +4,16 @@ SEPARATOR = "__"
 def make_flat(
         data: dict | list | tuple | set,
         key: str = "",
+        given_separator: str = SEPARATOR,
 ) -> dict:
-    separator = SEPARATOR if key else ""
+    separator = given_separator if key else ""
     prepared_data = dict()
     if isinstance(data, dict):
         for key_i, value_i in data.items():
             prepared_data.update(make_flat(
                 data=value_i,
                 key=f'{key}{separator}{key_i}',
+                given_separator=given_separator,
             ))
 
     elif isinstance(data, (list, tuple, set)):
@@ -19,6 +21,7 @@ def make_flat(
             prepared_data.update(make_flat(
                 data=value,
                 key=f'{key}{separator}{index}',
+                given_separator=given_separator,
             ))
 
     else:

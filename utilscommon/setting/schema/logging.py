@@ -75,16 +75,18 @@ class SchemaLogging(BaseModel):
         should_be_lower_list = ("HANDLERS",)
         for i in should_be_lower_list:
             if i in data:
-                data[i] = data[i].lower()
+                if isinstance(data[i], str):
+                    data[i] = data[i].lower()
 
         if 'HANDLERS' in data:
-            values = data['HANDLERS'].split(",")
-            values = [i.strip() for i in values]
-            for i in values:
-                if i not in EnumLogHandler._value2member_map_:
-                    raise ValueError(f"{i} is not in EnumLogHandler!")
+            if isinstance(data['HANDLERS'], str):
+                values = data['HANDLERS'].split(",")
+                values = [i.strip() for i in values]
+                for i in values:
+                    if i not in EnumLogHandler._value2member_map_:
+                        raise ValueError(f"{i} is not in EnumLogHandler!")
 
-            data['HANDLERS'] = values
+                data['HANDLERS'] = values
 
         super().__init__(**data)
 
