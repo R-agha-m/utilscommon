@@ -14,4 +14,3 @@ class SchemaGeneral(BaseModel):
     APPLICATION_VERSION: str
     DOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/docs"
     REDOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/redocs"
-    ENV_FILE: str
