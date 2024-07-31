@@ -1,2 +1,4 @@
 #numpy==1.22.*
 #pyvirtualdisplay==2.2
+pydantic>=2.7
+pydantic-settings>=2.2
