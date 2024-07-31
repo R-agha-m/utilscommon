@@ -1,4 +1,4 @@
-from utilscommon.utilscommon.sleep import Sleep
+from utilscommon.sleep import Sleep
 from time import sleep
 
 from threading import Thread

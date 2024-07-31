@@ -4,7 +4,7 @@ from os import rmdir, sep
 from pathlib import Path
 
 try:
-    from utilscommon.utilscommon.create_dir import create_dir
+    from utilscommon.create_dir import create_dir
 except ImportError:
     from create_dir import create_dir
 

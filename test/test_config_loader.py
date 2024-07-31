@@ -5,8 +5,8 @@ from utilsconfigloader.loader import ConfigLoader
 from utilsconfigloader.utils import schema
 
 try:
-    from utilscommon.utilscommon.base_dir_path_finder import base_dir_path_finder
-    from utilscommon.utilscommon.add_dir_to_env import add_dir_to_env
+    from utilscommon.base_dir_path_finder import base_dir_path_finder
+    from utilscommon.add_dir_to_env import add_dir_to_env
 except ImportError:
     from utilscommon.base_dir_path_finder import base_dir_path_finder
     from utilscommon.add_dir_to_env import add_dir_to_env

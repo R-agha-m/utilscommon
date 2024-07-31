@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 
 try:
-    from utilscommon.utilscommon.handle_none_in_nested_dict import handle_none_in_nested_dict
+    from utilscommon.handle_none_in_nested_dict import handle_none_in_nested_dict
 except ImportError:
     from handle_none_in_nested_dict import handle_none_in_nested_dict
 
