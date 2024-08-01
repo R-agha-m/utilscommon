@@ -41,21 +41,69 @@ Write-Host "New version is: $newVersion"
 Set-Content -Path $versionFilePath -Value $newVersion
 
 Write-Host "=============================== Commit the change"
-# Commit the change
-git add --all
-git commit -m "VERSION is updated to $newVersion"
+try
+{
+    git add --all
+    git commit -m "VERSION is updated to $newVersion"
+}
+catch
+{
+    Write-Host "Error: Failed to commit changes."
+    exit 1
+}
+
+# Define remotes and their URLs
+$remotes = @{
+    "github" = "git@github.com:hacknitive/utilscommon.git"
+    "gitlab" = "git@gitlab.com:hacknitive/utilscommon.git"
+}
+
+# Ensure the remotes are added
+foreach ($remote in $remotes.Keys)
+{
+    Write-Host "=============================== Check if $remote remote exists"
+    $remoteExists = git remote | Select-String -Pattern "^$remote$"
+    if (-not $remoteExists)
+    {
+        Write-Host "$remote remote not found. Adding $remote..."
+        git remote add $remote $remotes[$remote]
+        if ($LASTEXITCODE -ne 0)
+        {
+            Write-Host "Error: Failed to add $remote remote."
+            exit 1
+        }
+    }
+    else
+    {
+        Write-Host "$remote remote already exists."
+    }
+}
 
 Write-Host "=============================== Create the new tag"
-# Create the new tag
-git tag $newVersion
-git tag
+try
+{
+    git tag $newVersion
+    git tag
+}
+catch
+{
+    Write-Host "Error: Failed to create or list tags."
+    exit 1
+}
 
-# Push the changes and the new tag to the server
-Write-Host "=============================== Push to github"
-git push --tags github master
-Write-Host "=============================== Push to gitlab"
-git push --tags gitlab master
-Write-Host "=============================== Push to origin"
-git push --tags origin master
+# Push the changes and the new tag to the remotes
+foreach ($remote in $remotes.Keys)
+{
+    Write-Host "=============================== Push to $remote"
+    try
+    {
+        git push --tags $remote master
+    }
+    catch
+    {
+        Write-Host "Error: Failed to push to $remote."
+        exit 1
+    }
+}
 
 Write-Host "=============================== Version updated to $newVersion."
