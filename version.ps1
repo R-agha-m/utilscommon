@@ -1,6 +1,7 @@
 # Path to the VERSION file
 $versionFilePath = "VERSION"
 
+Write-Host "=============================== Check if VERSION exists"
 # Check if VERSION exists
 if (-not (Test-Path $versionFilePath))
 {
@@ -15,6 +16,7 @@ else
     Write-Host "Current version is: $currentVersion"
 }
 
+Write-Host "=============================== Ensure the version follows the vx.y.z format"
 # Ensure the version follows the vx.y.z format
 if ($currentVersion -notmatch "^v[0-9]+\.[0-9]+\.[0-9]+$")
 {
@@ -22,6 +24,7 @@ if ($currentVersion -notmatch "^v[0-9]+\.[0-9]+\.[0-9]+$")
     exit 1
 }
 
+Write-Host "=============================== Increment patch"
 # Increment the last part of the version
 $parts = $currentVersion.Substring(1).Split('.')
 $major = [int]$parts[0]
@@ -38,23 +41,22 @@ Write-Host "New version is: $newVersion"
 # Write the new version to VERSION
 Set-Content -Path $versionFilePath -Value $newVersion
 
+Write-Host "=============================== Commit the change"
 # Commit the change
-Write-Host "git add --all"
 git add --all
-
-Write-Host "git commit -m 'VERSION is updated to $newVersion'"
 git commit -m "VERSION is updated to $newVersion"
 
+Write-Host "=============================== Create the new tag"
 # Create the new tag
-Write-Host "git tag $newVersion'"
 git tag $newVersion
 
+Write-Host "=============================== Push the changes and the new tag to the server"
 # Push the changes and the new tag to the server
-Write-Host "git push --tags github master"
+Write-Host "=============================== github"
 git push --tags github master
-Write-Host "git push --tags gitlab master"
+Write-Host "=============================== gitlab"
 git push --tags gitlab master
-Write-Host "git push --tags origin master"
+Write-Host "=============================== origin"
 git push --tags origin master
 
-Write-Host "Version updated to $newVersion and pushed to the server."
+Write-Host "=============================== Version updated to $newVersion and pushed to the server."
