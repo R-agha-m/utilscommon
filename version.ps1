@@ -16,7 +16,6 @@ else
     Write-Host "Current version is: $currentVersion"
 }
 
-Write-Host "=============================== Ensure the version follows the vx.y.z format"
 # Ensure the version follows the vx.y.z format
 if ($currentVersion -notmatch "^v[0-9]+\.[0-9]+\.[0-9]+$")
 {
@@ -49,14 +48,14 @@ git commit -m "VERSION is updated to $newVersion"
 Write-Host "=============================== Create the new tag"
 # Create the new tag
 git tag $newVersion
+git tag
 
-Write-Host "=============================== Push the changes and the new tag to the server"
 # Push the changes and the new tag to the server
-Write-Host "=============================== github"
+Write-Host "=============================== Push to github"
 git push --tags github master
-Write-Host "=============================== gitlab"
+Write-Host "=============================== Push to gitlab"
 git push --tags gitlab master
-Write-Host "=============================== origin"
+Write-Host "=============================== Push to origin"
 git push --tags origin master
 
 Write-Host "=============================== Version updated to $newVersion and pushed to the server."
