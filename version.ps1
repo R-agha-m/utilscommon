@@ -58,4 +58,4 @@ git push --tags gitlab master
 Write-Host "=============================== Push to origin"
 git push --tags origin master
 
-Write-Host "=============================== Version updated to $newVersion and pushed to the server."
+Write-Host "=============================== Version updated to $newVersion."
