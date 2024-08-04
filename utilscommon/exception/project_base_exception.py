@@ -17,7 +17,7 @@ class ProjectBaseException(Exception):
     def __str__(self):
         return str({
             self.__class__.__name__: {
-                key: value for key, value in self.__dict__.items() \
+                key: str(value) for key, value in self.__dict__.items() \
                 if not key.startswith('__') \
                    and not callable(value)
             }
