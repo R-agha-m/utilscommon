@@ -80,7 +80,13 @@ class SchemaLogging(BaseModel):
 
         if 'HANDLERS' in data:
             if isinstance(data['HANDLERS'], str):
-                values = data['HANDLERS'].split(",")
+                values = data['HANDLERS'] \
+                    .replace('[', "") \
+                    .replace(']', "") \
+                    .replace('"', "") \
+                    .strip() \
+                    .split(",")
+
                 values = [i.strip() for i in values]
                 for i in values:
                     if i not in EnumLogHandler._value2member_map_:
