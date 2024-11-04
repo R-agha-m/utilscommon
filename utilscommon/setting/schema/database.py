@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 
 class SchemaDatabase(BaseModel):
+    CONNECTION_STRING: Optional[str]
     HOST: str
     PORT: int
     DATABASE: str
@@ -12,6 +13,7 @@ class SchemaDatabase(BaseModel):
 
 
 class SchemaDatabaseWithAuthDb(BaseModel):
+    CONNECTION_STRING: Optional[str]
     HOST: str
     PORT: int
     DATABASE: str
