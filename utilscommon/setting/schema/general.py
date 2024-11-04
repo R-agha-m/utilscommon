@@ -14,4 +14,4 @@ class SchemaGeneral(BaseModel):
     APPLICATION_VERSION: str
     DOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/docs"
     REDOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/redocs"
-    HOST: str
+    HOST: Annotated[str, StringConstraints(pattern=r'^(http|https)://.+/$')] = "http://127.0.0.1:8000/"
