@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Literal
 
 from pydantic import (
     BaseModel,
@@ -15,3 +15,4 @@ class SchemaGeneral(BaseModel):
     DOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/docs"
     REDOCS_URL: Annotated[str, StringConstraints(pattern=r'^/.+$')] = "/redocs"
     HOST: Annotated[str, StringConstraints(pattern=r'^(http|https)://.+/$')] = "http://127.0.0.1:8000/"
+    LANGUAGE: Literal['english', 'farsi'] = 'english'
